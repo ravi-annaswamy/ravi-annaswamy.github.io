@@ -1,0 +1,92 @@
+
+<!DOCType html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<body>
+    <div id="container" style="min-width: 310px; height: 800; width: 1200; max-width: 1600px; margin: 0 auto"></div>
+
+    <script>
+        $(function() {
+            $('#container').highcharts({
+                chart: {
+                    type: 'scatter',
+                    zoomType: 'xy',
+                    height: 900,
+                    width: 1200
+                },
+                title: {
+                    text: 'Diagnosis vectors trained by non-negative Skip-gram'
+                },
+                subtitle: {
+                    text: 'Dimension reduced by TSNE'
+                },
+                xAxis: {
+                    title: {
+                        enabled: true,
+                        text: 'TSNE Dimension 1'
+                    },
+                    startOnTick: true,
+                    endOnTick: true,
+                    showLastLabel: true
+                },
+                yAxis: {
+                    title: {
+                        text: 'TSNE Dimension 2'
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    scatter: {
+                        marker: {
+                            radius: 5,
+                            states: {
+                                hover: {
+                                    enabled: true,
+                                    lineColor: 'rgb(100,100,100)'
+                                }
+                            }
+                        },
+                        states: {
+                            hover: {
+                                marker: {
+                                    enabled: false
+                                }
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<b>{series.name}</b><br>',
+                            pointFormat: '{point.x}, {point.y}'
+                        }
+                    }
+                },
+
+                series: [{
+                    'marker': {
+                        'symbol': 'circle',
+                        'fillColor': '#ffd700'
+                    },
+                    'data': [
+                        [4.2334624366908038, 2.7931973560014951]
+                    ],
+                    'name': 'D_446.5: Giant cell arteritis'
+                }, {
+                    'marker': {
+                        'symbol': 'circle',
+                        'fillColor': '#ff0000'
+                    },
+                    'data': [
+                        [11.527717351341165, -21.161901831593802]
+                    ],
+                    'name': 'D_174.9: Malignant neoplasm of breast (female), unspecified'
+                    }]
+            });
+        });
+    </script>
+
+</body>
+
+</html>
